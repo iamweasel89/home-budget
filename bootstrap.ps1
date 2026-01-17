@@ -1,4 +1,5 @@
-﻿# bootstrap.ps1 - One-line installer
+﻿
+# bootstrap.ps1 - One-line installer
 Write-Host "=== Home Budget Core - Bootstrap ===" -ForegroundColor Cyan
 Write-Host "Downloading installer..." -ForegroundColor Yellow
 
