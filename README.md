@@ -87,3 +87,4 @@ A universal personal finance system based on an event journal.
 -   Adding family mode (multiple profiles).
 
 
+
