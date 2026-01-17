@@ -1,84 +1,87 @@
 ﻿# Home Budget Core
+A universal personal finance system based on an event journal.
 
-> **Шпаргалка:**
-> 1.  Установка: ./setup.ps1`n> 2.  Деплой: ./launchpad/deploy.ps1 -Mode New`n> 3.  Обновление: ./launchpad/deploy.ps1 -Mode Sync`n> 4.  [Полная инструкция](#-быстрый-старт)
+> **Cheatsheet:**
+> 1.  Setup: `./setup.ps1`
+> 2.  Deploy: `./launchpad/deploy.ps1 -Mode New`
+> 3.  Update: `./launchpad/deploy.ps1 -Mode Sync`
+> 4.  [Full instructions](#-quick-start)
 
-Универсальная система учёта личных финансов на основе журнала событий.
+## Architecture
+- **Core:** `Events` sheet (journal of all operations).
+- **Model:** Event sourcing (state is calculated from event history).
+- **Goal:** Calculate free money available at the current moment.
 
-## Архитектура
-- **Ядро:** Лист 'Events' (журнал всех операций).
-- **Модель:** event sourcing (состояние вычисляется из истории событий).
-- **Цель:** Расчёт свободных денег на текущий момент.
-
-## Сущности
+## Entities
 - **Event:** id, timestamp, type, amount, account_id, reference_id, target_id, category, description, status.
 
-## Текущий статус
-- [x] Инициализация проекта
-- [x] Создание Google Таблицы
-- [x] Создание листа Events
-- [ ] Добавление начальных данных
-- [ ] Создание дашборда
-## 🚀 Быстрый старт
+## Current status
+- [x] Project initialization
+- [x] Google Sheet creation
+- [x] Events sheet creation
+- [ ] Adding initial data
+- [ ] Creating a dashboard
 
-### Установка на новую машину
-1.  Убедитесь, что установлены:
+## 🚀 Quick start
+
+### Setup on a new machine
+1.  Ensure you have:
     -   Git
     -   Node.js LTS
     -   PowerShell 5+
-2.  Скачайте и запустите установочный скрипт:
+2.  Download and run the setup script:
     ```powershell
-    # Скопируйте setup.ps1 из репозитория или запустите:
+    # Copy setup.ps1 from the repository or run:
     .\setup.ps1
     ```
-    Скрипт:
-    -   Проверит/установит Clasp.
-    -   Клонирует репозиторий.
-    -   Настроит конфигурацию (запросит ID таблицы, откроет браузер для выбора аккаунта Google).
+    The script will:
+    -   Check/install Clasp.
+    -   Clone the repository.
+    -   Configure (ask for Sheet ID, open browser for Google account selection).
 
-### Первый деплой
-1.  Перейдите в папку проекта:
+### First deployment
+1.  Navigate to the project folder:
     ```powershell
     cd "C:\Users\user\Documents\GitHub\home-budget"
     ```
-2.  Запустите полный деплой:
+2.  Run full deployment:
     ```powershell
     .\launchpad\deploy.ps1 -Mode New
     ```
-3.  **В Google Таблице:**
-    -   Обновите страницу (F5).
-    -   В меню выберите: 📊 Домашняя бухгалтерия → Создать лист Events.
-    -   Затем: 📊 Домашняя бухгалтерия → Добавить начальные данные.
+3.  **In Google Sheets:**
+    -   Refresh the page (F5).
+    -   In the menu, select: 📊 Home Budget → Create Events Sheet.
+    -   Then: 📊 Home Budget → Add Initial Data.
 
-### Повседневная работа
--   **Редактирование скриптов:** Изменяйте файлы в папке `scripts/`.
--   **Деплой изменений:**
+### Daily work
+-   **Editing scripts:** Modify files in the `scripts/` folder.
+-   **Deploy changes:**
     ```powershell
     .\launchpad\deploy.ps1 -Mode Sync
     ```
--   **Проверка:** Обновите таблицу — изменения применятся.
+-   **Verification:** Refresh the sheet — changes will apply.
 
-## 📂 Структура проекта
+## 📂 Project structure
 - home-budget/
-  - docs/               # Документация
-  - scripts/            # Код Google Apps Script
-  - templates/          # Конфигурация (config.json)
-  - launchpad/          # Пусковые блоки
-    - deploy.ps1       # Деплой (Check/Sync/New)
-    - setup.ps1        # Установка с нуля
+  - docs/               # Documentation
+  - scripts/            # Google Apps Script code
+  - templates/          # Configuration (config.json)
+  - launchpad/          # Launch scripts
+    - deploy.ps1       # Deployment (Check/Sync/New)
+    - setup.ps1        # Fresh installation
   - .gitignore
   - README.md
 
-## 🔧 Команды управления
-| Действие | Команда |
-|----------|---------|
-| Проверить состояние | `.\launchpad\deploy.ps1 -Mode Check` |
-| Обновить скрипт | `.\launchpad\deploy.ps1 -Mode Sync` |
-| Полная пересборка | `.\launchpad\deploy.ps1 -Mode New` |
-| Установка на новой машине | `.\setup.ps1` |
+## 🔧 Management commands
+| Action | Command |
+|--------|---------|
+| Check status | `.\launchpad\deploy.ps1 -Mode Check` |
+| Update script | `.\launchpad\deploy.ps1 -Mode Sync` |
+| Full rebuild | `.\launchpad\deploy.ps1 -Mode New` |
+| Setup on new machine | `.\setup.ps1` |
 
-## 📊 Что дальше?
--   Создание дашборда для расчёта "Свободно сейчас".
--   Автоматизация создания листа Events через скрипт.
--   Добавление семейного режима (несколько профилей).
+## 📊 What's next?
+-   Creating a dashboard to calculate "Free money now".
+-   Automating Events sheet creation via script.
+-   Adding family mode (multiple profiles).
 
