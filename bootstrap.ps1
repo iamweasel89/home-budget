@@ -1,4 +1,5 @@
-﻿
+﻿<#  Этот блок комментария поглотит любые невидимые символы в начале файла #>
+
 # bootstrap.ps1 - One-line installer
 Write-Host "=== Home Budget Core - Bootstrap ===" -ForegroundColor Cyan
 Write-Host "Downloading installer..." -ForegroundColor Yellow
