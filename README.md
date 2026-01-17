@@ -2,6 +2,7 @@
 A universal personal finance system based on an event journal.
 
 > **Cheatsheet:**
+> - **One‑line install:** `iwr -useb https://raw.githubusercontent.com/iamweasel89/home-budget/main/bootstrap.ps1 | iex`
 > 1.  Setup: `./setup.ps1`
 > 2.  Deploy: `./launchpad/deploy.ps1 -Mode New`
 > 3.  Update: `./launchpad/deploy.ps1 -Mode Sync`
@@ -84,4 +85,5 @@ A universal personal finance system based on an event journal.
 -   Creating a dashboard to calculate "Free money now".
 -   Automating Events sheet creation via script.
 -   Adding family mode (multiple profiles).
+
 
