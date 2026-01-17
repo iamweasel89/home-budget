@@ -1,0 +1,10 @@
+﻿# Logs
+logs/
+*.log
+
+# Clasp local config
+.clasp.json
+config.json
+
+# PowerShell transcripts
+*.transcript
